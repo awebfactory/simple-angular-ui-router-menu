@@ -4,6 +4,7 @@ angular.module('appSimpleMenu', [
     .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         $stateProvider
             .state('home', {
+                controller: 'HomeCtrl as homeCtrl',
                 url: '/',
                 templateUrl: 'templates/home.html'
             })
@@ -22,4 +23,9 @@ angular.module('appSimpleMenu', [
         $urlRouterProvider.otherwise('/');
         // use the HTML5 History API
         $locationProvider.html5Mode(true);
-    });
+    })
+    .controller('HomeCtrl', [function(){
+       var vm = this;
+       vm.message = 'Welcome'; 
+       vm.appName = 'ui-router Simple Menu'; 
+    }]);
